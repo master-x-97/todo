@@ -54,8 +54,8 @@
                                     <div class="date">${todoArray[i].date}</div>
                                     <div class="btns">
 
-                                        <i id="deleteBtn" class="myBtn fa-solid fa-trash-can px-2 cursor-pointer text-danger fs-5" onclick="deleteTodo()"> </i>
-                                        <i id="toUpdate" class="myBtn fa-solid fa-pen-to-square px-2 cursor-pointer text-success fs-5"  onclick="edit()"> </i>
+                                        <i id="deleteBtn" class="myBtn fa-solid fa-trash-can px-2 cursor-pointer text-danger fs-5 mb-3" onclick="deleteTodo()"> </i>
+                                        <i id="toUpdate" class="myBtn fa-solid fa-pen-to-square px-2 cursor-pointer text-success fs-5"  onclick="edit(${i})"> </i>
                                     </div>
                     </div>
                 </div>`
@@ -70,6 +70,9 @@
         todoArray.splice(i,1);
         localStorage.setItem('todo', JSON.stringify(todoArray));
         displayTodo();
+        addButton.classList.replace('d-none','d-block')
+        updateBtn.classList.replace('d-block','d-none')
+        
         
     }
 
@@ -84,7 +87,7 @@
                 </div>
                 <div>
                     <i id="deleteBtn" class="myBtn fa-solid fa-trash-can px-2 cursor-pointer text-danger fs-5" onclick="deleteTodo(${i})"> </i>
-                    <i class="myBtn fa-solid fa-pen-to-square px-2 cursor-pointer text-success fs-5" id="searchInput"  > </i>
+                    <i class="myBtn fa-solid fa-pen-to-square px-2 cursor-pointer text-success fs-5" id="searchInput"  onclick="edit(${i})"  > </i>
                 </div>
             </div>`
                     
