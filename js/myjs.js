@@ -1,4 +1,6 @@
     const todoInput = document.getElementById('todo-input');
+    const startTime = document.getElementById('startTime');
+    const endTime = document.getElementById('endTime');
     const addButton = document.getElementById('submit-button');
     const todoContainer = document.getElementById('todo-container');
     const deleteButton = document.querySelector('#deleteBtn');
@@ -22,14 +24,25 @@
     })
     
     function addTodo() {
-        let todoitem = todoInput.value;
-        if(!todoitem){
+        console.log(todoInput.value);
+        console.log(startTime.value);
+        console.log(endTime.value);
+
+        let todoitems ={
+            todoInputvalue:todoInput.value,
+            startTimevalue:startTime.value,
+            endTimevalue:endTime.value 
+        };
+        if(!todoitems){
             alert('Please enter a todo item')
         }
         else{
             let todoObject ={
-                item : todoitem,
-                date : new Date().toLocaleString()
+                item : todoitems.todoInputvalue,
+                date : new Date().toLocaleString(), 
+                startTime:todoitems.startTimevalue,
+                endTime : todoitems.endTimevalue,
+                am : true
             }
             todoArray.unshift(todoObject);
             localStorage.setItem('todo', JSON.stringify(todoArray));
@@ -45,20 +58,39 @@
         let container = '';
 
         for (let i = 0; i < todoArray.length; i++) {
-            container+= `                <div   class="bg-white  w-100 p-3 border-1 my-3 justify-content-between d-flex align-items-center shadow">
-                    <div class="text w-50 ">
-                        <span class="fs-5">${todoArray[i].item}</span>
-                    </div>
-    
-                    <div class=" w-50 d-flex justify-content-between">
-                                    <div class="date">${todoArray[i].date}</div>
-                                    <div class="btns">
+            container+= `  <div class="shadow">
+            <div   class="bg-white  w-100  border-1  justify-content-between d-flex align-items-center ">
+                   <div class="text w-50 ">
+                       <span class="fs-5">${todoArray[i].item}</span>
+                   </div>
+   
+                   <div class=" w-50 d-flex justify-content-between">
+                                   <div class="date">${todoArray[i].date}</div>
+                                   <div class="btns">
 
-                                        <i id="deleteBtn" class="myBtn fa-solid fa-trash-can px-2 cursor-pointer text-danger fs-5 mb-3" onclick="deleteTodo()"> </i>
-                                        <i id="toUpdate" class="myBtn fa-solid fa-pen-to-square px-2 cursor-pointer text-success fs-5"  onclick="edit(${i})"> </i>
-                                    </div>
-                    </div>
-                </div>`
+                                       <i id="deleteBtn" class="myBtn fa-solid fa-trash-can px-2 cursor-pointer text-danger fs-5 mb-3" onclick="deleteTodo()"> </i>
+                                       <i id="toUpdate" class="myBtn fa-solid fa-pen-to-square px-2 cursor-pointer text-success fs-5"  onclick="edit(${i})"> </i>
+                                   </div>
+                                   
+                   </div>
+                   
+               </div>
+                <table class="table text-center d-block w-100" dir="rtl">
+                <thead>
+                    <tr>
+                        <td>وقت البدء</td>
+                        <td> وقت الانتهاء</td>
+                        <td> تم الانتهاء</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td class="text-white bg-info ">${todoArray[i].startTime}</td>
+                    <td class="text-white bg-danger">${todoArray[i].endTime}</td>
+                    <td><input type="checkbox"></td>
+                </tbody>
+            </table>
+            </div>
+                `
             
         }
         todoContainer.innerHTML = container;

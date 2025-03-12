@@ -34,6 +34,11 @@
     </div>
     <div class="mx-auto w-75 my-5 ">
         <input type="text" class="form-control d-block my-3" placeholder="I need to...." id="todo-input">
+        <div class=" d-flex justify-content-between">
+
+            <input type="time" class="form-control d-block my-3 mx-2 w-50 " placeholder="start time...."  id="startTime">
+            <input type="time" class="form-control d-block my-3 w-50 "  placeholder="end Time...." id="endTime">
+        </div>
         <button class="btn btn-success d-block " id="submit-button" >Submit</button>
         <button class="btn btn-warning d-none " id="updateBtn" onclick="updatedValue()" >Update</button>
     </div>
@@ -41,10 +46,10 @@
         <div class="w-100 mx-auto container my-5">
             <div id="" class="bg-white p-3 border-1 d-flex justify-content-between align-items-center shadow">
                 <div class="text w-50">
-                    <span class="fs-5">workshop</span>
+                    <span class="fw-bold">workshop</span>
                 </div>
-                <div class="d-flex justify-content-between w-50">
-                    <div class="date ">Date/Time</div>
+                <div class="d-flex justify-content-evenly w-50">
+                    <div class="date fw-bold me-3 ">Date/Time</div>
                     <div class="btns">
                         <i id="deleteBtn"  class="fa-solid fa-trash-can px-2 cursor-pointer text-danger  "> </i>
                         <i id="toUpdate" class="fa-solid fa-pen-to-square px-2 cursor-pointer text-success "  > </i>
@@ -57,8 +62,24 @@
                
 
             </div>
+            <table class="table text-center d-block w-100" dir="rtl">
+                <thead>
+                    <tr>
+                        <td>وقت البدء</td>
+                        <td> وقت الانتهاء</td>
+                        <td> تم الانتهاء</td>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <td class="text-white bg-info "> 6:30</td>
+                    <td class="text-white bg-danger">7:30</td>
+                    <td><input disabled type="checkbox"></td>
+                </tbody>
+            </table>
         </div>
     </div>
+    
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/myjs.js"></script>
 </body>
