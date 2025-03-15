@@ -1,3 +1,14 @@
  .myBtn{
     cursor: pointer;
  }
+
+ .checked{
+   color: #1cdb1c;
+    font-size: 20px;
+ }
+
+ @media (width > 767px){
+   #searchInput{
+      width: 100% !important;
+   }
+ }
