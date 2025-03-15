@@ -18,9 +18,8 @@ addButton.addEventListener("click", () => {
 });
 
 todoContainer.addEventListener('click', (e)=>{
-    if( e.target.type == 'checkbox' ){
-    checkBox = e.target;   
-    checkboxUpdaes(checkBox)
+    if(e.target && e.target.type == 'checkbox' ){ 
+    checkboxUpdaes(e.target)
     }
 })
 
@@ -71,22 +70,22 @@ function displayTodo() {
     let container = "";
     
     for (let i = 0; i < todoArray.length; i++) {
-        container += `  <div class="shadow">
+        container += `  <div class="shadow my-2">
             <div   class="bg-white  w-100  border-1  justify-content-between d-flex align-items-center ">
-                <div class="text w-50 ">
+                <div class="text  ">
                     <span class="fs-5">${todoArray[i].item}</span>
                 </div>
-                <div class=" w-50 d-flex justify-content-between">
+                <div class=" w-50 d-flex justify-content-between  ">
                         <div class="date">${todoArray[i].date}</div>
-                        <div class="btns">
-                            <i id="deleteBtn" class="myBtn fa-solid fa-trash-can px-2 cursor-pointer text-danger fs-5 mb-3" onclick="deleteTodo()"> </i>
-                            <i id="toUpdate" class="myBtn fa-solid fa-pen-to-square px-2 cursor-pointer text-success fs-5"  onclick="edit(${i})"> </i>
-                        </div>
                         
-                </div>
+                        <div class="btns">
+                            <i id="deleteBtn" class="myBtn fa-solid fa-trash-can px-2  cursor-pointer text-danger  " onclick="deleteTodo()"> </i>
+                            <i id="toUpdate" class="myBtn fa-solid fa-pen-to-square px-2 cursor-pointer text-success "  onclick="edit(${i})"> </i>
+                        </div>
+                        </div>
                 
             </div>
-                <table class="table text-center d-block w-100" dir="rtl">
+                <table class="table text-center " dir="rtl">
                 <thead>
                     <tr>
                         <td>وقت البدء</td>
@@ -97,7 +96,7 @@ function displayTodo() {
                 <tbody>
                     <td class="text-white bg-info ">${todoArray[i].startTime == 'NaN:undefined AM' ? '00' : todoArray[i].startTime }</td>
                     <td class="text-white bg-danger">${todoArray[i].endTime == 'NaN:undefined AM' ? '00' : todoArray[i].endTime }</td>
-                     ${!todoArray[i].checked  ? '<td><input id="checkBox" type="checkbox"></td>' : '<td><i  class="fa-solid fa-clipboard-check checked"></i></td>'}  
+                    ${!todoArray[i].checked  ? `<td><input id="checkBox"  data-index='${i}'  type="checkbox"></td>` : '<td><i  class="fa-solid fa-clipboard-check checked"></i></td>'}  
                 </tbody>
             </table>
             </div>`;
@@ -157,17 +156,11 @@ function updatedValue() {
 
 
 
-function checkboxUpdaes(){  
-    let todoArray = JSON.parse(localStorage.getItem('todo'))
-    for(i=0 ; i< todoArray.length;i++){
-        if(checkBox.checked){
-            console.log('checked');
-             todoArray[i].checked = true
-        }else{
-            todoArray[i].checked = false
-        }
-    }
-    localStorage.setItem('todo',JSON.stringify( todoArray))
+function checkboxUpdaes(checkbox){  
+let index= checkbox.getAttribute('data-index')
+todoArray[index].checked = checkbox.checked
+localStorage.setItem('todo', JSON.stringify(todoArray));
+
 }
 
 

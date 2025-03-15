@@ -7,8 +7,31 @@
     font-size: 20px;
  }
 
- @media (width > 767px){
+ /* @media (width > 767px){
    #searchInput{
       width: 100% !important;
    }
+ } */
+
+ .date{
+   font-size: 11px;
+   text-align: center;
+ }
+
+
+ .text{
+   padding-left: 1.2rem;
+ }
+
+ table thead tr td{
+   font-size: 10px;
+   font-weight: 500;
+}
+table tbody tr td{
+   font-size: 12px;
+   font-weight: 500;
+ }
+
+ .btns{
+   min-width: 35px;
  }
