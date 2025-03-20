@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/mycss.css">
+    <title>Document</title>
+</head>
+<body>
+    <svg width="100%" height="100%" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="waveGradient" gradientTransform="rotate(0)">
+            <stop offset="0%" stop-color="#000033"/>  <!-- أزرق داكن جدًا -->
+            <stop offset="15%" stop-color="#001f4d"/>  <!-- أزرق أغمق -->
+            <stop offset="30%" stop-color="#0033cc"/>  <!-- أزرق كحلي -->
+            <stop offset="45%" stop-color="#0055ff"/>  <!-- أزرق ساطع -->
+            <stop offset="60%" stop-color="#3399ff"/>  <!-- أزرق سماوي متوسط -->
+            <stop offset="80%" stop-color="#66bbff"/>  <!-- أزرق فاتح -->
+            <stop offset="100%" stop-color="#99ccff"/>  <!-- أزرق فاتح جدًا -->
+          </linearGradient>
+        </defs>
+        <path fill="url(#waveGradient)" fill-opacity="1"
+          d="M0,160L48,165.3C96,171,192,181,288,197.3C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,213.3C1248,235,1344,213,1392,202.7L1440,192V0H0Z">
+        </path>
+      </svg>
+      <button class="custom-btn btn-16 w-auto">    <a href="./index.html" class="text-decoration-none text-dark fw-bold">home</a>  </button>
+  
+      <div  id="salaa">
+          <table class="table  my-3" dir="rtl">
+              <thead >
+                <div class="text-center">
+
+                    <button class="custom-btn btn-11 fw-bold"> الصلاة اليوميه<div class="dot"></div></button>
+                </div>
+                  <tr >
+                      <td  class="">الفجر</td>
+                      <td class="">الضحي</td>
+                      <td class="">الظهر</td>
+                      <td class="">العصر</td>
+                      <td class="">المغرب</td>
+                      <td class="">العشاء</td>
+                      <td class="" >الوتر</td>
+                      <td class="">تم</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td id=""><input  id="fagr"  data-index='${i}'  type="checkbox"></td>
+                      <td id=""><input id="doha"  data-index='${i}'  type="checkbox"></td>
+                      <td id=""><input id="zohr"  data-index='${i}'  type="checkbox"></td>
+                      <td id=""><input id="asr"  data-index='${i}'  type="checkbox"></td>
+                      <td id=""><input id="ma8rb"  data-index='${i}'  type="checkbox"></td>
+                      <td id=""><input id="e4a"  data-index='${i}'  type="checkbox"></td>
+                      <td id=""><input  id="wtr"  data-index='${i}'  type="checkbox"></td>
+                      <td  id="done"class="d-none"><i  class="fa-solid fa-clipboard-check checked"></i></td>            </tr>
+              </tbody>
+          </table>
+          <table class="m-auto text-center my-3">
+              <thead>
+                <div class="text-center">
+
+                    <button class="custom-btn btn-11 fw-bold mt-3"> اذكار الصباح والمساء<div class="dot"></div></button>
+                </div>
+                  <tr >
+                      <td class=" mx-3 px-3">  المساء</td>
+                      <td class=" mx-3 px-3"> الصباح </td>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><input id="azkarSbah"  data-index='${i}'  type="checkbox"></td>
+                      <td><input id="azkarMsaa"  data-index='${i}'  type="checkbox"></td>
+                  </tr>
+              </tbody>
+          </table>
+      
+          <div class="wrap text-center mt-4">
+              <button class="custom-btn btn-11 fw-bold"> أضافة المهام اليوميه<div class="dot"></div></button>
+              <input  class="w-100 mt-3" type="checkbox" name="missions" id="missions">
+            </div>
+      </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/priorities.js"></script>
+</body>
+</html>
