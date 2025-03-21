@@ -102,8 +102,9 @@ table tbody tr td{
 
 
  .btn-16 {
+   background: #b621fe;
    border: none;
-   color: #000;
+   z-index: 1;
  }
  .btn-16:after {
    position: absolute;

@@ -55,17 +55,18 @@ function loadCheckedInputs(){
     const storedItems = localStorage.getItem('checkedInputs')
     if(storedItems){
         const items = JSON.parse(storedItems)
+        items.forEach((item, index) => {
         console.log(items[0]);
-        setCheckboxState(fagrInput , items[0].fagr)
-        setCheckboxState(dohaInput , items[0].doha)
-        setCheckboxState(zohrInput , items[0].zohr)
-        setCheckboxState(asrInput , items[0].asr)
-        setCheckboxState(ma8rbInput , items[0].m8rb)
-        setCheckboxState(e4aInput , items[0].e4a)
-        setCheckboxState(wtrInput , items[0].wtr)
-        setCheckboxState(azkarSbahInput , items[0].azkarSbah)
-        setCheckboxState(azkarMsaaInput , items[0].azkarMsaa)
-        setCheckboxState(missionsInput , items[0].missions)
+        setCheckboxState(fagrInput , item.fagr)
+        setCheckboxState(dohaInput , item.doha)
+        setCheckboxState(zohrInput , item.zohr)
+        setCheckboxState(asrInput , item.asr)
+        setCheckboxState(ma8rbInput , item.m8rb)
+        setCheckboxState(e4aInput , item.e4a)
+        setCheckboxState(wtrInput , item.wtr)
+        setCheckboxState(azkarSbahInput , item.azkarSbah)
+        setCheckboxState(azkarMsaaInput , item.azkarMsaa)
+        setCheckboxState(missionsInput , item.missions)
         
         if(fagrInput.checked && dohaInput.checked && zohrInput.checked && asrInput.checked && ma8rbInput.checked && e4aInput.checked && wtrInput.checked){
             console.log(fagrInput.checked);
@@ -73,6 +74,7 @@ function loadCheckedInputs(){
             doneInput.classList.replace('d-none','d-block')
             
         }
+    })
     }
 }
 
